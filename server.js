@@ -3,6 +3,7 @@
 	const Clases = require('./app.js')
 	const bodyParser = require('body-parser');
 	const app = express();
+	var fs = require('fs');
 
 	app.use(express.json());
 	app.use(bodyParser.urlencoded({ extended: false }));
@@ -21,8 +22,12 @@
 		console.log("llego el nombre de la libreta y se guardo: ");
 		let name = request.body.nombre
 		Clases.createCB(name)
-		
 
+		if(fs.existsSync("./files/contactos/"+name+".txt")){
+			response.sendFile(path.join(__dirname,'./forms/CBNoGuardado.html'));
+		}else{
+			response.sendFile(path.join(__dirname,'./forms/CBGuardado.html'));
+		} 
 	});
 
 	app.get('/addContact',(request,response)=>{
