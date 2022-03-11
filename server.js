@@ -1,13 +1,14 @@
 	const express = require('express');
 	const path = require('path');
-	const Clases = require('./app.js')
+	const Clases1 = require('./app.js')
+	const Clases2 = require('./Clases.js')
 	const bodyParser = require('body-parser');
 	const app = express();
 	var fs = require('fs');
+	const { request, response } = require('express');
 
 	app.use(express.json());
-	app.use(bodyParser.urlencoded({ extended: false }));
-	app.use(express.urlencoded({extended:false}));
+	app.use(express.urlencoded({extended:false}))
 
 	app.get('/',(request,response)=>{
 		//response.send('Hello express ..! :) ');
@@ -19,13 +20,16 @@
 	});
 
 	app.post('/SaveCB',(request,response)=>{
-		console.log("llego el nombre de la libreta y se guardo: ");
+
+		console.log(request.body)
+		
 		let name = request.body.nombre
-		Clases.createCB(name)
 
 		if(fs.existsSync("./files/contactos/"+name+".txt")){
 			response.sendFile(path.join(__dirname,'./forms/CBNoGuardado.html'));
 		}else{
+			console.log("llego el nombre de la libreta y se guardo: ");
+			Clases1.crearCB(name)
 			response.sendFile(path.join(__dirname,'./forms/CBGuardado.html'));
 		} 
 	});
@@ -34,24 +38,43 @@
 		response.sendFile(path.join(__dirname,'./forms/addContact.html'));
 	});
 
-
-	app.get('/ListContactBook',(request,response)=>{
-		Clases.readCB()
-	});
-
-	app.post('/addCon',(request,response)=>{
-		//response.send("<h1>hola mundo</h1>"+"<p>hola</p>")
-
+	app.post('/AddContacts',(request,response)=>{
 		var sobreescribir = request.body.overwrite
+		//console.log(request.body)
 
-		//response.send(request.body.overwrite)
+		var name = request.body.name;
+		var email = request.body.email;
+		var mobil = request.body.mobil;
+		var topList = request.body.topList;
 
-		if(sobreescribir=="on"){
-			Clases.overwriteContact("unico contacto",request.body)
+		var miContacto = new Clases2.Contact(name,email,mobil,topList);
+		console.log(miContacto)
+
+		if(sobreescribir=='on'){
+			Clases1.sobreescribirContacto("unicaLibreta",miContacto)
+			response.sendFile(path.join(__dirname,'./forms/contactoAgregado.html'));
+			//console.log(request.body)
 		}else{
-			Clases.SaveContact("unico contacto",request.body)
+			Clases1.guardarContacto("unicaLibreta",miContacto)
+			response.sendFile(path.join(__dirname,'./forms/contactoAgregado.html'));
+			//console.log(request.body)
 		}
 	});
+
+	app.get('/ListContactBook',(request,response)=>{
+		var name = "unicaLibreta"
+		//var data = leerContactBook(name)
+		var data = Clases1.leerContactBook(name)
+		console.log("-->"+data);
+		response.send(data)
+		//response.send("<p>respuesta dede get listar ContacBook</p>")
+	});
+
+
+	app.post('/home',(request,response)=>{
+		console.log("llego un post a home")
+		response.send(request.body)
+	})
 
 	const port = 3000;
 	app.listen(port,()=>{

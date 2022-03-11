@@ -13,6 +13,10 @@ console.log(contenido)
 
 //escribir en un archivo existente con writeFile (reescrbe el archivo)
 var fs = require('fs');
+
+
+
+
 fs.writeFile('./files/text.txt','Texto escrito en el archivo',(error)=>{
     if(error){
         console.log("no se pudo escribir en el archivo")
@@ -58,10 +62,10 @@ if(error){
     console.log(json_datos)
     console.log("acceso a atributos")
     console.log(
-    json_datos.alumno+"\n"+
-    json_datos.dni+"\n"+
-    json_datos.edad+"\n"+
-    json_datos.libretaDeuda
+    json_datos.contactos.name+"\n"+
+    json_datos.contactos.email+"\n"+
+    json_datos.contactos.mobil+"\n"+
+    json_datos.contactos.topList
     )
 }
 });
