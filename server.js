@@ -15,10 +15,12 @@
 		response.sendFile(path.join(__dirname, './static/menu.html'));
 	});
 
+	//mustra el formulario de crear libreta de contacto
 	app.get('/createContactBook',(request,response)=>{
 		response.sendFile(path.join(__dirname,'./forms/createContactBook.html'));
 	});
 
+	//guarda la libreta de contacto en la unidad local
 	app.post('/SaveCB',(request,response)=>{
 
 		console.log(request.body)
@@ -34,10 +36,12 @@
 		} 
 	});
 
+	//mustra el formulario de agregar contacto
 	app.get('/addContact',(request,response)=>{
 		response.sendFile(path.join(__dirname,'./forms/addContact.html'));
 	});
 
+	//guarda el contacto en la unidad local
 	app.post('/AddContacts',(request,response)=>{
 		var sobreescribir = request.body.overwrite
 		//console.log(request.body)
@@ -48,7 +52,7 @@
 		var topList = request.body.topList;
 
 		var miContacto = new Clases2.Contact(name,email,mobil,topList);
-		console.log(miContacto)
+		//console.log(miContacto)
 
 		if(sobreescribir=='on'){
 			Clases1.sobreescribirContacto("unicaLibreta",miContacto)
@@ -61,10 +65,11 @@
 		}
 	});
 
+	//muestra los contactos gardados en la libreta de contacto
 	app.get('/ListContactBook',(request,response)=>{
-		var name = "unicaLibreta"
+		var name = "unicaLibreta";
 		//var data = leerContactBook(name)
-		var data = Clases1.leerContactBook(name)
+		var data = Clases1.leerContactBook(name);
 		console.log("-->"+data);
 		response.send(data)
 		//response.send("<p>respuesta dede get listar ContacBook</p>")

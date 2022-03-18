@@ -24,11 +24,12 @@ console.log(miContacto.toString2('&%&'))
 //console.log(miCB.toString)
 */
 
-
+//crea libreta de contacto
 function crearCB (nombre){
     fs.createWriteStream("./files/contactos/"+nombre+".json")
 }
 
+//sobreescribe el contacto
 function sobreescribirContacto(nombre, nuevoContact){
     var miContactBook = new Clases.ContactBook("unica libreta",[])
     miContactBook.addContact(nuevoContact)
@@ -47,6 +48,7 @@ function sobreescribirContacto(nombre, nuevoContact){
     })
 }
 
+//guarda el nuevo contacto 
 function guardarContacto(nombre, nuevoC){
     var contenido = fs.readFile('./files/contactos/'+nombre+".json",(error,datos)=>{
         if(error){
@@ -97,7 +99,7 @@ function guardarContacto(nombre, nuevoC){
     });
 }
 
-
+//lee los contactos existentes en la libreta de contacto
 function leerContactBook(nombre){
     var str = "los datos guardados son: ";
     var datos = fs.readFileSync('./files/contactos/'+nombre+'.json')
