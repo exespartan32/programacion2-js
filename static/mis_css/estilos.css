@@ -1,10 +1,11 @@
 * {
 	box-sizing: border-box;
+
 }
 
 body {
 	font-family: 'Roboto', sans-serif;
-	background: #cc9074;
+	background-image: url("https://th.bing.com/th/id/R.60a1c3cf0c2704a173a0a6cbb11c6162?rik=YGhTeZSjqbhiJg&pid=ImgRaw&r=0&sres=1&sresct=1");
 }
 
 main {
@@ -14,6 +15,66 @@ main {
 	padding: 40px;
 }
 
+.titulo {
+	text-align:center;
+    font-size: 40px;
+    font-weight: bold;
+    font-style: italic;
+    font-variant: small-caps;
+    font-family: monospace;
+    text-transform: capitalize;
+    letter-spacing: 4px;
+    color: #b80935;
+    word-spacing: 8px;
+	text-shadow: 7px 4px 5px rgb(255, 0, 0);
+}
+
+.correct {
+	text-align:center;
+    font-size: 40px;
+    font-weight: bold;
+    font-style: italic;
+    font-variant: small-caps;
+    font-family: monospace;
+    text-transform: capitalize;
+    letter-spacing: 4px;
+    color: #121070;
+    word-spacing: 8px;
+	text-shadow: 7px 4px 5px rgb(9, 128, 15);
+}
+
+.icon {
+    font-size: 200px;
+    font-weight: bold;
+    font-style: italic;
+    font-variant: small-caps;
+    font-family: monospace;
+    text-transform: capitalize;
+    letter-spacing: 4px;
+    color: #121070;
+	text-align:center;
+	text-shadow: 7px 4px 5px rgb(9, 128, 15);
+}
+
+.subtitulo {
+	text-align:center;
+	font-size: 25px;
+    font-family: Roboto;
+    font-weight: bold;
+    font-style: italic;
+    text-transform: uppercase;
+    text-decoration: underline;
+    letter-spacing: 6px;
+    color: #4416c4;
+}
+
+.target {
+	font-family: "Colonna MT";
+	font-size: 25px;
+	color: #000000bc;
+	font-variant: small-caps;
+	font-style: italic;
+}
 
 .formulario__label {
 	display: block;
@@ -42,8 +103,6 @@ main {
 	outline: none;
 	box-shadow: 3px 0px 30px rgba(163,163,163, 0.4);
 }
-
-
 
 .formulario__checkbox {
 	margin-right: 10px;

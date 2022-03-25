@@ -4,26 +4,6 @@ const { response } = require('express');
 const { send } = require('process');
 const { consumers } = require('stream');
 
-
-/*
-var miContacto = new Clases.Contact("exequiel","exemay@1234",1213124321,true)
-console.log(miContacto.toString1())
-console.log(miContacto.toString2('#'))
-
-var contacto2 = new Clases.Contact("daniel","may777@tt.com", 224448, false)
-
-var miContactBook = new Clases.ContactBook("familia")
-miContactBook.addContact(miContacto)
-miContactBook.addContact(contacto2)
-
-console.log(miContacto.toString1())
-console.log(miContacto.toString2('&%&'))
-
-
-//var miCB = new Clases.ContactBook("escuela")
-//console.log(miCB.toString)
-*/
-
 //crea libreta de contacto
 function crearCB (nombre){
     fs.createWriteStream("./files/contactos/"+nombre+".json")
@@ -124,7 +104,8 @@ function leerContactBook(nombre){
         "<p> nombre: "+name+"</p>"+
         "\n<p> mobil: "+mobil+"</p>"+
         "\n<p> email: "+email+"</p>"+
-        "\n<p> is topList: "+topList+"</p>"
+        "\n<p> is topList: "+topList+"</p>"+
+        "\n<p> ---------------------------------------------------------------"+"</p>"
     } 
     console.log(str)
     return str

@@ -6,143 +6,58 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="2021_Node/mis_css/estilos.css">
+        <link rel="stylesheet" href="mis_css\estilos.css">
     </head>
     <body>
-        <h1>Programación II</h1>
-        <h2>Libreta de Contactos</h2>
-        <h3>Agregar nuevo Contacto</h3>
+        <!-- <h1 class="titulo">Programación II</h1> 
+        <h2 class="subtitulo">Libreta de Contactos</h2> -->
+        <h3 class="titulo">Agregar nuevo Contacto</h3>
  
         <form action='http://localhost:3000/AddContacts' method="POST">
-
             <div>
-                <label for="nombre" class="formulario__label">Name:</label>
+                <label for="nombre" class="formulario__label">
+                    <span class="target">Name:</span>
+                </label>
                 <div class="formulario__grupo-input">
                     <input type="text" class="formulario__input" name="name" id="nombre" placeholder="ingrese nombre">
                 </div>
             </div>
                 <br>
             <div>
-                <label for="mobil" class="formulario__label">Mobil:</label>
+                <label for="mobil" class="formulario__label">
+                    <span class="target"> Mobil:</span>
+                </label>
                 <div>
                     <input type="text" class="formulario__input" name="mobil" id="mobil" placeholder="ingrese mobil">
                 </div>
             </div>
                 <br>
             <div>
-                <label for="email" class="formulario__label">email:</label>
+                <label for="email" class="formulario__label">
+                    <span class="target"> email:</span>
+                </label>
                 <div class="formulario__grupo-input">
                     <input type="email" class="formulario__input" name="email" id="email" placeholder="ingrese email">
                 </div>                
             </div>
                 <br>
             <div>
-                <label for="favorito" class="formulario__label">Favorite:</label>
-                <input type="checkbox" class="formulario__checkbox" name="topList" id="favorito" >              
+                <label for="favorito" class="formulario__label">
+                    <span class="target"> Favorite:</span>
+                    <input type="checkbox" class="formulario__checkbox" name="topList" id="favorito" >              
+                </label>                
             </div>
                 <br>
             <div>
-                <label for="Sobreescribir" class="formulario__label">Inicializar contactoBook:</label>
-                <input type="checkbox" class="formulario__checkbox" name="overwrite" id="Sobreescribir">
+                <label for="Sobreescribir" class="formulario__label">
+                    <span class="target"> Inicializar contactoBook:</span>
+                    <input type="checkbox" class="formulario__checkbox" name="overwrite" id="Sobreescribir">
+                </label>                
             </div>
                 <br>
             <div>
                 <button type="submit" class="btn btn-block btn-primary btn-lg">Enviar</button>
-            </div>
-                
+            </div>     
         </form>
- 
-        <script src="" async defer></script>
-        <style>
-            * {
-	box-sizing: border-box;
-}
-
-body {
-	font-family: 'Roboto', sans-serif;
-	background: #b1a6d123;
-}
-
-main {
-	max-width: 800px;
-	width: 90%;
-	margin: auto;
-	padding: 40px;
-}
-
-
-.formulario__label {
-	display: block;
-	font-weight: 700;
-	padding: 10px;
-	cursor: pointer;
-}
-
-.formulario__grupo-input {
-	position: relative;
-}
-
-.formulario__input {
-	width: 100%;
-	background: rgb(145, 223, 131);
-	border: 3px solid transparent;
-	border-radius: 3px;
-	height: 45px;
-	line-height: 45px;
-	padding: 0 40px 0 10px;
-	transition: .3s ease all;
-}
-
-.formulario__input:focus {
-	border: 3px solid #0075FF;
-	outline: none;
-	box-shadow: 3px 0px 30px rgba(163,163,163, 0.4);
-}
-
-
-
-.formulario__checkbox {
-	margin-right: 10px;
-}
-
-.btn {
-	display: inline-block;
-	font-weight: 400;
-	color: #212529;
-	text-align: center;
-	vertical-align: middle;
-	-webkit-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-	background-color: transparent;
-	border: 1px solid transparent;
-	padding: 0.375rem 0.75rem;
-	font-size: 1rem;
-	line-height: 1.5;
-	border-radius: 0.25rem;
-	transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
-
-.btn-block {
-	display: block;
-	width: 100%;
-}
-
-.btn-primary {
-	color: #fff;
-	background-color: #007bff;
-	border-color: #007bff;
-	box-shadow: none;
-}
-
-.btn-lg, .btn-group-lg > .btn {
-	padding: 0.5rem 1rem;
-	font-size: 1.25rem;
-	line-height: 1.5;
-	border-radius: 0.3rem;
-}
-
-        </style>
     </body>
 </html>

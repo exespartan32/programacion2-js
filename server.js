@@ -23,9 +23,8 @@
 	//guarda la libreta de contacto en la unidad local
 	app.post('/SaveCB',(request,response)=>{
 
-		console.log(request.body)
-		
 		let name = request.body.nombre
+		console.log(name)
 
 		if(fs.existsSync("./files/contactos/"+name+".txt")){
 			response.sendFile(path.join(__dirname,'./forms/CBNoGuardado.html'));

@@ -6,18 +6,29 @@
         <title></title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="mis_css\estilos.css">
+        <script src="https://kit.fontawesome.com/14ae2edc61.js" crossorigin="anonymous"></script>
     </head>
     <body>
-        <h1>Programación II</h1>
-        <h2>Libreta de Contactos</h2>
-        <h3>Crear libreta de contactos</h3>
+       <!-- <h1>Programación II</h1>
+        <h2>Libreta de Contactos</h2> -->
+        <h3 class="titulo">Crear libreta de contactos</h3>
  
         <form action='http://localhost:3000/SaveCB' method="POST"> 
-            <p><label>Name:</label><input type="text" name="nombre"></p> 
-            <input type="submit" value="Save ContactBook and Add Contact">
+            <div>
+                <label for="nombre" class="formulario__label">
+                    <span class="target">Name:</span>
+                </label>
+                <div class="formulario__grupo-input">
+                    <input type="text" class="formulario__input" name="nombre" id="nombre" placeholder="ingrese nombre de la libreta de contacto">
+                </div>
+            </div>
+                <br>
+            <button type="submit" class="btn btn-block btn-primary btn-lg"> 
+                <i class="fa-regular fa-share-from-square"></i>
+                Save ContactBook and Add Contact
+                <i class="fa-regular fa-share-from-square"></i>
+            </button>            
         </form>
- 
-        <script src="" async defer></script>
     </body>
 </html>
