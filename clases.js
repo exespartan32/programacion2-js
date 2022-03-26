@@ -62,30 +62,15 @@ class ContactBook{
     addContact(cont){
         this.contactos.push(cont)
     }
-    
-    toString1(){
-        tmp = ""
-		for (i=0;i<contacts.size();i++) {
-			tmp = tmp+contacts.get(i).toString();
-		}
-		if (tmp == "") {
-			return "the name of the contact book is:  "+ this.name;
-		}else {
-			return "the name of the contact book is:  "+ this.name+" "+tmp;
-		}
+
+    delContact (cont){
+        this.contactos.reduce(cont)
     }
 
-    toString2(separador){
-        st_CB="";
-		for(i =0;i<contacts.size();i++) {
-			if(i==this.contacts.size()-1) {
-				st_CB = st_CB + this.contacts.get(i).toString("#");
-			}else {
-				st_CB = st_CB + this.contacts.get(i).toString("#")+sep;
-			}
-		}
-		return st_CB;
+    isTheContacts(cont){
+        
     }
+ 
 }
 
 module.exports = {Contact, ContactBook}

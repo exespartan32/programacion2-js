@@ -5,7 +5,9 @@
 
 body {
 	font-family: 'Roboto', sans-serif;
-	background-image: url("https://th.bing.com/th/id/R.60a1c3cf0c2704a173a0a6cbb11c6162?rik=YGhTeZSjqbhiJg&pid=ImgRaw&r=0&sres=1&sresct=1");
+	background-image: url("https://fondosmil.com/fondo/17010.jpg");
+	background-size: cover;
+	/* background-image: url("https://i.pinimg.com/originals/77/42/0d/77420df3f9e33db5b79ee25455d3340e.png"); */
 }
 
 main {
@@ -33,7 +35,6 @@ main {
 	text-align:center;
     font-size: 40px;
     font-weight: bold;
-    font-style: italic;
     font-variant: small-caps;
     font-family: monospace;
     text-transform: capitalize;
@@ -43,17 +44,28 @@ main {
 	text-shadow: 7px 4px 5px rgb(9, 128, 15);
 }
 
-.icon {
+.icon-correct{
     font-size: 200px;
-    font-weight: bold;
-    font-style: italic;
-    font-variant: small-caps;
-    font-family: monospace;
-    text-transform: capitalize;
-    letter-spacing: 4px;
     color: #121070;
 	text-align:center;
 	text-shadow: 7px 4px 5px rgb(9, 128, 15);
+}
+
+.icon-error {	
+	font-size: 100px;
+	color: #6b1010;
+	text-shadow: 7px 4px 5px rgb(170, 125, 42);
+}
+
+.italic {
+    font-style: italic;
+}
+
+.icon-center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
 }
 
 .subtitulo {
@@ -71,7 +83,7 @@ main {
 .target {
 	font-family: "Colonna MT";
 	font-size: 25px;
-	color: #000000bc;
+	color: #07c317;
 	font-variant: small-caps;
 	font-style: italic;
 }

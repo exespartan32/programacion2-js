@@ -1,4 +1,5 @@
 	const express = require('express');
+	//const routes = require('./routes')
 	const path = require('path');
 	const Clases1 = require('./app.js')
 	const Clases2 = require('./Clases.js')
@@ -10,6 +11,11 @@
 	app.use(express.json());
 	app.use(express.urlencoded({extended:false}))
 
+
+	// archivos estaticos
+	app.use(express.static('static'));
+
+	// cargar menu 
 	app.get('/',(request,response)=>{
 		//response.send('Hello express ..! :) ');
 		response.sendFile(path.join(__dirname, './static/menu.html'));
@@ -17,7 +23,7 @@
 
 	//mustra el formulario de crear libreta de contacto
 	app.get('/createContactBook',(request,response)=>{
-		response.sendFile(path.join(__dirname,'./forms/createContactBook.html'));
+		response.sendFile(path.join(__dirname,'./static/forms/createContactBook.html'));
 	});
 
 	//guarda la libreta de contacto en la unidad local
@@ -27,17 +33,17 @@
 		console.log(name)
 
 		if(fs.existsSync("./files/contactos/"+name+".txt")){
-			response.sendFile(path.join(__dirname,'./forms/CBNoGuardado.html'));
+			response.sendFile(path.join(__dirname,'./static/forms/CBNoGuardado.html'));
 		}else{
 			console.log("llego el nombre de la libreta y se guardo: ");
 			Clases1.crearCB(name)
-			response.sendFile(path.join(__dirname,'./forms/CBGuardado.html'));
+			response.sendFile(path.join(__dirname,'./static/forms/CBGuardado.html'));
 		} 
 	});
 
 	//mustra el formulario de agregar contacto
 	app.get('/addContact',(request,response)=>{
-		response.sendFile(path.join(__dirname,'./forms/addContact.html'));
+		response.sendFile(path.join(__dirname,'./static/forms/addContact.html'));
 	});
 
 	//guarda el contacto en la unidad local
@@ -55,11 +61,11 @@
 
 		if(sobreescribir=='on'){
 			Clases1.sobreescribirContacto("unicaLibreta",miContacto)
-			response.sendFile(path.join(__dirname,'./forms/contactoAgregado.html'));
+			response.sendFile(path.join(__dirname,'./static/forms/contactoAgregado.html'));
 			//console.log(request.body)
 		}else{
 			Clases1.guardarContacto("unicaLibreta",miContacto)
-			response.sendFile(path.join(__dirname,'./forms/contactoAgregado.html'));
+			response.sendFile(path.join(__dirname,'./static/forms/contactoAgregado.html'));
 			//console.log(request.body)
 		}
 	});
